@@ -1,0 +1,21 @@
+<div
+  class="my-3 card bg-light border-info mb-3"
+  style="width: 15rem; padding: 8px"
+>
+  <h5 [ngClass]="{ strike: !todo.active }">{{ todo?.title }}</h5>
+  <p [ngClass]="{ strike: !todo.active }">{{ todo?.desc }}</p>
+  <p class="text-muted small">{{ todo?.date | date : "medium" }}</p>
+
+  <button class="btn btn-outline-danger btn-sm" (click)="onClick(todo)">Delete</button>
+
+  <div class="mb-3 my-2 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="todo{{ i }}"
+      (click)="onCheckboxClick(todo)"
+      [checked]="!todo.active"
+    />
+    <label class="form-check-label" for="todo{{ i }}">Mark as done</label>
+  </div>
+</div>
